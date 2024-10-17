@@ -40,6 +40,7 @@ export default function FilterMoviesCard(props) {
 
   const handleChange = (e, type, value) => {
     e.preventDefault()
+    props.onUserInput(type, value)   // NEW
     // Completed later
   };
   const handleTextChange = e => {
@@ -61,14 +62,14 @@ export default function FilterMoviesCard(props) {
           Filter the movies.
         </Typography>
         <TextField
-          sx={{...formControl}}
-          id="filled-search"
-          label="Search field"
-          type="search"
-          variant="filled"
-          value={props.titleFilter}
-          onChange={handleTextChange}
-    />
+         sx={{...formControl}}
+         id="filled-search"
+         label="Search field"
+         type="search"
+         variant="filled"
+         value={props.titleFilter}
+         onChange={handleTextChange}
+         />
         <FormControl sx={{...formControl}}>
           <InputLabel id="genre-label">Genre</InputLabel>
           <Select
@@ -77,7 +78,7 @@ export default function FilterMoviesCard(props) {
           defaultValue=""
           value={props.genreFilter}
           onChange={handleGenreChange}
-  >
+          >
             {genres.map((genre) => {
               return (
                 <MenuItem key={genre.id} value={genre.id}>
