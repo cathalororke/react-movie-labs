@@ -3,6 +3,8 @@ import PageTemplate from "../components/templateMovieListPage";
 import { MoviesContext } from "../contexts/moviesContext";
 import { useQueries } from "react-query";
 import { getMovie } from "../api/tmdb-api";
+import RemoveFromFavorites from "../components/cardIcons/removeFromFavorites";
+import WriteReview from "../components/cardIcons/writeReview";
 import Spinner from '../components/spinner'
 
 const FavoriteMoviesPage = () => {
@@ -33,9 +35,16 @@ const FavoriteMoviesPage = () => {
 
   return (
     <PageTemplate
-      title="Favourite Movies"
+      title="Favorite Movies"
       movies={movies}
-      selectFavorite={toDo}
+      action={(movie) => {
+        return (
+          <>
+            <RemoveFromFavorites movie={movie} />
+            <WriteReview movie={movie} />
+          </>
+        );
+      }}
     />
   );
 };
