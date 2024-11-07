@@ -9,7 +9,7 @@ const HomePage = (props) => {
 
   useEffect(() => {
     fetch(
-      `https://api.themoviedb.org/3/discover/movie?api_key=${process.env.REACT_APP_TMDB_KEY}&language=en-US&include_adult=false&page=2`
+      `https://api.themoviedb.org/3/discover/movie?api_key=${process.env.REACT_APP_TMDB_KEY}&language=en-US&include_adult=false&page=4`
     )
       .then((res) => res.json())
       .then((json) => {
@@ -42,7 +42,7 @@ const HomePage = (props) => {
   return (
     <Grid container>
       <Grid size={12}>
-        <Header title={"Home Page"} />
+        <Header title={"TMDB Movies Home Page"} />
       </Grid>
       <Grid container sx={{flex: "1 1 500px"}}>
         <Grid key="find" size={{xs: 12, sm: 6, md: 4, lg: 3, xl: 2}} sx={{padding: "20px"}}>
