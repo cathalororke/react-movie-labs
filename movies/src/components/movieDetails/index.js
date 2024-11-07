@@ -10,7 +10,6 @@ import Typography from "@mui/material/Typography";
 import Drawer from "@mui/material/Drawer";
 import MovieReviews from "../movieReviews"
 
-
 const root = {
     display: "flex",
     justifyContent: "center",
@@ -59,6 +58,18 @@ const MovieDetails = ({ movie }) => {  // Don't miss this!
         />
         <Chip label={`Released: ${movie.release_date}`} />
       </Paper>
+      <>
+          <Typography variant="h5" component="h3" sx={{ marginTop: 2 }}>
+             Production Countries
+           </Typography>
+           <Paper component="ul" sx={{ ...root }}>
+             {movie.production_countries.map((country) => (
+               <li key={country.iso_3166_1}>
+                 <Chip label={country.name} sx={{ ...chip }} />
+               </li>
+             ))}
+           </Paper>
+         </>
       <Fab
         color="secondary"
         variant="extended"
